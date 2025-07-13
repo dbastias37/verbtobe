@@ -8,6 +8,7 @@ class SpinningVerbs {
         this.quizTotal = 0;
         this.currentQuizQuestion = null;
         this.isSpinning = false;
+        this.rotation = 0;
         
         this.init();
     }
@@ -71,6 +72,8 @@ class SpinningVerbs {
             
             wheelOuter.appendChild(slot);
         }
+
+        wheelOuter.style.transform = `rotate(${this.rotation}deg)`;
     }
     
     updateDisplay() {
@@ -162,10 +165,9 @@ class SpinningVerbs {
         
         // Calculate rotation angle
         const angleStep = 360 / 72; // 72 slots total
-        const currentRotation = this.getCurrentRotation();
-        const targetRotation = currentRotation + (direction === 'left' ? angleStep : -angleStep);
-        
-        wheelOuter.style.transform = `rotate(${targetRotation}deg)`;
+        this.rotation += direction === 'left' ? angleStep : -angleStep;
+
+        wheelOuter.style.transform = `rotate(${this.rotation}deg)`;
         
         setTimeout(() => {
             this.isSpinning = false;
@@ -173,12 +175,6 @@ class SpinningVerbs {
         }, 800);
     }
     
-    getCurrentRotation() {
-        const wheelOuter = document.querySelector('.wheel-outer');
-        const transform = wheelOuter.style.transform;
-        const match = transform.match(/rotate\(([^)]+)deg\)/);
-        return match ? parseFloat(match[1]) : 0;
-    }
     
     selectVerb(verbIndex) {
         if (this.isSpinning) return;
