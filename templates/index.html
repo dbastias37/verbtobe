@@ -1,1 +1,87 @@
 
+
+{% extends "base.html" %}
+
+{% block title %}🎯 Spinning Verbs - Rueda de Verbos Irregulares{% endblock %}
+
+{% block content %}
+<div class="header">
+    <h1>🎯 SPINNING VERBS</h1>
+    <p>La rueda interactiva de verbos irregulares en inglés</p>
+</div>
+
+<div class="controls">
+    <div class="control-group">
+        <label for="verbForm">Forma Verbal:</label>
+        <select id="verbForm">
+            <option value="infinitive">Infinitivo</option>
+            <option value="past">Pasado Simple</option>
+            <option value="participle">Participio Pasado</option>
+        </select>
+    </div>
+    
+    <button id="randomBtn">🎲 Giro Aleatorio</button>
+    <button id="quizBtn">📝 Modo Quiz</button>
+</div>
+
+<div id="wheel-view">
+    <div class="navigation">
+        <button class="nav-btn" id="rotateLeft">←</button>
+        <button class="nav-btn" id="rotateRight">→</button>
+    </div>
+    
+    <div class="wheel-container">
+        <div class="wheel-outer">
+            <!-- Verb slots will be generated here -->
+        </div>
+        <div class="wheel-inner">
+            <div class="wheel-title">SPINNING</div>
+            <div class="wheel-subtitle">VERBS</div>
+            <div class="current-form">INFINITIVE</div>
+            <div class="current-verb">BE</div>
+        </div>
+    </div>
+    
+    <div class="info-panel" id="verbInfo">
+        <h3>📚 Detalles del Verbo</h3>
+        <div class="verb-details">
+            <div class="verb-form">
+                <h4>INFINITIVE</h4>
+                <span>BE</span>
+            </div>
+            <div class="verb-form">
+                <h4>SIMPLE PAST</h4>
+                <span>WAS/WERE</span>
+            </div>
+            <div class="verb-form">
+                <h4>PAST PARTICIPLE</h4>
+                <span>BEEN</span>
+            </div>
+        </div>
+        <div class="meaning">
+            <strong>Significado:</strong> ser/estar
+        </div>
+    </div>
+</div>
+
+<div id="quiz-view" class="quiz-mode hidden">
+    <div class="score" id="quiz-score">Puntuación: 0/0</div>
+    <div class="quiz-question" id="quiz-question">
+        Cargando pregunta...
+    </div>
+    <div class="quiz-options" id="quiz-options">
+        <!-- Quiz options will be generated here -->
+    </div>
+    <button id="returnBtn">🔄 Volver a la Rueda</button>
+</div>
+
+<div class="info-panel">
+    <h3>💡 Instrucciones</h3>
+    <p><strong>🖱️ Navegación:</strong> Usa las flechas ← → para girar la rueda o las teclas del teclado</p>
+    <p><strong>🎯 Selección:</strong> Haz clic en cualquier verbo del anillo exterior</p>
+    <p><strong>🔄 Formas:</strong> Cambia entre infinitivo, pasado simple y participio pasado</p>
+    <p><strong>🎲 Aleatorio:</strong> Presiona la barra espaciadora o el botón para sorpresas</p>
+    <p><strong>📝 Quiz:</strong> Pon a prueba tus conocimientos con preguntas interactivas</p>
+</div>
+{% endblock %}
+
