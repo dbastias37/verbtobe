@@ -116,18 +116,22 @@ button:disabled {
     top: 50%;
     left: 50%;
     width: 50%;
-    height: 6px;
+    height: 1.4rem;
+    margin-top: -0.7rem;
     background: #f8f9fa;
     border: 1px solid #dee2e6;
-    margin-top: -3px;
     transform-origin: 0 50%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     padding-left: 5px;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
+    line-height: 1;
     font-weight: bold;
-    color: #333;
+    color: #111;
+    z-index: 5;
+    overflow: visible;
+    white-space: nowrap;
     cursor: pointer;
     transition: all 0.3s ease;
 }
